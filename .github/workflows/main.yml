@@ -16,7 +16,7 @@ jobs:
         with:
           repository: Javed-Patel-wohlig/test-gitops.git  
           token: ${{ secrets.TOKEN100 }} 
-          ref: uat                  
+          ref: main                  
           path: test-gitops
       - name: Update count in file
         run: |
@@ -32,4 +32,4 @@ jobs:
         with:
           github_token: ${{ secrets.TOKEN100 }}
           branch: main
-          repository: owner/test-gitops  
+          repository: Javed-Patel-wohlig/test-gitops.git 
