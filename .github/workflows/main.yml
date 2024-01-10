@@ -12,24 +12,24 @@ jobs:
   update-file:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          repository: Javed-Patel-wohlig/test-gitops.git  
-          token: ${{ secrets.TOKEN100 }} 
-          ref: uat                  
-          path: test-gitops
-      - name: Update count in file
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: update file
         run: |
+          git config --global user.email "javed.patel@wohlig.com"
+          git config --global user.name "Javed-Patel-wohlig"
+          git clone https://Javed-Patel-wohlig:${{ secrets.TOKEN100 }}@github.com/Javed-Patel-wohlig/test-gitops.git
+          git pull
           cd test-gitops
           count=$(grep -oP 'my commit count is : \K\d+' count.txt)
           echo $((count + 50)) > count.txt
-      - uses: EndBug/add-and-commit@v7
-        with:
-          add: 'count.txt'
-          message: 'Update count to ${{ steps.update-file.outputs.count }}'
-          branch: uat
-      - uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.TOKEN100 }}
-          branch: uat
-          repository: Javed-Patel-wohlig/test-gitops.git 
+
+          git add .
+          git commit -m "update new image"
+ 
+          git status
+ 
+          git push --set-upstream origin master
+ 
+          git status
+
