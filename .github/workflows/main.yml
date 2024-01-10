@@ -19,7 +19,6 @@ jobs:
           git config --global user.email "javed.patel@wohlig.com"
           git config --global user.name "Javed-Patel-wohlig"
           git clone https://Javed-Patel-wohlig:${{ secrets.TOKEN100 }}@github.com/Javed-Patel-wohlig/test-gitops.git
-          git pull
           cd test-gitops
           count=$(grep -oP 'my commit count is : \K\d+' count.txt)
           echo "hello i am devops" > count.txt
@@ -32,6 +31,5 @@ jobs:
           git status
  
           git push --set-upstream origin main
- 
-          git status
 
+          git status
