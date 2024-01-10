@@ -1,6 +1,6 @@
 import os
 
-file_path = "count.txt"
+file_path = "test-gitops/count.txt"
 
 # Read current count from the file
 with open(file_path, "r") as file:

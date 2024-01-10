@@ -12,8 +12,11 @@ jobs:
   update-file:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
+      - name: checkout test-commits
         uses: actions/checkout@v3
+      - name: checkout test-gitops
+        run: git clone https://Javed-Patel-wohlig:${{ secrets.TOKEN100 }}@github.com/Javed-Patel-wohlig/test-gitops.git
       - name: update file
         run: |
-          python3 update_file.py
+          cd test-gitops
+          python3 ../update_file.py
