@@ -16,7 +16,7 @@ jobs:
         with:
           repository: Javed-Patel-wohlig/test-gitops.git  
           token: ${{ secrets.TOKEN100 }} 
-          ref: main                  
+          ref: uat                  
           path: test-gitops
       - name: Update count in file
         run: |
@@ -27,8 +27,9 @@ jobs:
         with:
           add: 'count.txt'
           message: 'Update count to ${{ steps.update-file.outputs.count }}'
+          branch: uat
       - uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.TOKEN100 }}
-          branch: main
+          branch: uat
           repository: Javed-Patel-wohlig/test-gitops.git 
