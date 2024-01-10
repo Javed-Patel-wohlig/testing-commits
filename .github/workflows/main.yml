@@ -20,7 +20,7 @@ jobs:
           path: test-gitops
       - name: Update count in file
         run: |
-          echo pwd
+          cd test-gitops
           count=$(grep -oP 'my commit count is : \K\d+' count.txt)
           echo $((count + 50)) > count.txt
       - uses: EndBug/add-and-commit@v7
