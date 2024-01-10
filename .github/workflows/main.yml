@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          repository: https://Javed-Patel-wohlig:${{ secrets.TOKEN100 }}@github.com/Javed-Patel-wohlig/test-gitops.git  
+          repository: Javed-Patel-wohlig/test-gitops.git  
           token: ${{ secrets.TOKEN100 }} 
           ref: uat                  
           path: test-gitops
