@@ -21,15 +21,16 @@ jobs:
           git clone https://Javed-Patel-wohlig:${{ secrets.TOKEN100 }}@github.com/Javed-Patel-wohlig/test-gitops.git
           git pull
           cd test-gitops
+          
           count=$(grep -oP 'my commit count is : \K\d+' count.txt)
           echo $((count + 50)) > count.txt
 
           git add .
-          git commit -m "update new image"
+          git commit -m "update new count"
  
           git status
  
-          git push --set-upstream origin master
+          git push --set-upstream origin main
  
           git status
 
