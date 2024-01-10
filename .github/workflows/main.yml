@@ -21,10 +21,12 @@ jobs:
           git clone https://Javed-Patel-wohlig:${{ secrets.TOKEN100 }}@github.com/Javed-Patel-wohlig/test-gitops.git
           git pull
           cd test-gitops
-          
-          count=$(grep -oP 'my commit count is : \K\d+' count.txt)
-          echo $((count + 50)) > count.txt
 
+          count=$(grep -oP 'my commit count is : \K\d+' count.txt)
+          echo "hello i am devops" > count.txt
+          echo "my commit count is: $count" >> count.txt
+          echo "thank you" >> count.txt
+          
           git add .
           git commit -m "update new count"
  
