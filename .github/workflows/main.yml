@@ -20,16 +20,18 @@ jobs:
           path: test-gitops
       - name: Update count in file
         run: |
+          git config --global user.email "javed.patel@wohlig.com"
+          git config --global user.name "Javed-Patel-wohlig"
+          git pull
           cd test-gitops
           count=$(grep -oP 'my commit count is : \K\d+' count.txt)
           echo $((count + 50)) > count.txt
-      - uses: EndBug/add-and-commit@v7
-        with:
-          add: 'count.txt'
-          message: 'Update count to ${{ steps.update-file.outputs.count }}'
-          branch: main
-      - uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.TOKEN100 }}
-          branch: main
-          repository: Javed-Patel-wohlig/test-gitops.git 
+          git add .
+          git commit -m "updated the count"
+ 
+          git status
+ 
+          git push --set-upstream origin main
+ 
+          git status
+      
