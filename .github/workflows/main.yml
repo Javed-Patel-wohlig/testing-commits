@@ -19,4 +19,4 @@ jobs:
       - name: update file
         run: |
           cd test-gitops
-          python3 ../update_file.py
+          python3 update_file.py
