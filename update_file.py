@@ -1,13 +1,17 @@
 import os
 
-file_path = "test-gitops/count.txt"
+# Provide the correct file path relative to the script
+file_path = "count.txt"
 
 # Read current count from the file
 with open(file_path, "r") as file:
-    count = int(file.read().split(":")[1].strip())
+    content = file.read()
 
-# Update count
-count += 50
+# Extract numeric part from the content
+count = ''.join(filter(str.isdigit, content))
+
+# Convert the count to an integer
+count = int(count) + 50
 
 # Update file content
 with open(file_path, "w") as file:
